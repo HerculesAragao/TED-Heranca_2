@@ -1,24 +1,28 @@
 package tech.fhaf.contas;
 
 public class Conta {
-    protected double numero;
-    protected double saldo;
+    public int numero;
+    public double saldo;
+
+    public boolean sacar(double valor) {
+        if(this.saldo >= valor) {
+            this.saldo = this.saldo - valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean depositar(double valor) {
+        if(valor >= 0) {
+            this.saldo = this.saldo + valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public double getSaldo() {
-        return saldo;
-    }
-    void depositar(double quantidade) {
-        this.saldo += quantidade;
-    }
-    void sacar(double quantidade) {
-        double novoSaldo = this.saldo - quantidade;
-        this.saldo = novoSaldo;
-    }
-    void transferir(Conta destino, double valor) {
-        this.saldo = this.saldo - valor;
-        destino.saldo = destino.saldo + valor;
-    }
-    void atualizar(double taxa){
-        this.saldo += this.saldo * taxa;
+        return this.saldo;
     }
 }

@@ -1,26 +1,27 @@
 package tech.fhaf.contas;
 
-public class ContaInvestimento extends Conta {
-    @Override
-    public double getSaldo() {
-        return this.saldo;
-        //return super.getSaldo();
+public class ContaInvestimento extends Conta{
+    public double taxa = 0.02;
+    public int prazo;
+    public boolean sacar(double valor) {
+        if(this.saldo >= valor) {
+            this.saldo = this.saldo - (valor * this.taxa);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    @Override
-    void depositar(double quantidade) {
-        this.saldo += quantidade;
-        //super.depositar(quantidade);
+    public boolean depositar(double valor) {
+        if(valor >= 0) {
+            this.saldo = this.saldo + (valor * this.taxa);
+            return true;
+        } else {
+            return false;
+        }
     }
-    void sacar(double quantidade) {
-        double novoSaldo = this.saldo - quantidade;
-        this.saldo = novoSaldo;
-    }
-    void transferir(Conta destino, double valor) {
-        this.saldo = this.saldo - valor;
-        destino.saldo = destino.saldo + valor;
-    }
-    void atualizar(double taxa) {
-        this.saldo += this.saldo * taxa*2;
+
+    public void aplicarRendimento(double taxa) {
+        this.saldo = this.saldo + (1 * taxa);
     }
 }

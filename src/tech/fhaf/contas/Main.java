@@ -1,29 +1,44 @@
 package tech.fhaf.contas;
 
+/*package Conta.app;
+
+import Conta.conta.Conta;
+import Conta.conta.ContaEspecial;
+import Conta.conta.ContaInvestimento;*/
+
+import tech.fhaf.contas.Conta;
+import tech.fhaf.contas.ContaEspecial;
+import tech.fhaf.contas.ContaInvestimento;
+
 public class Main {
+
     public static void main(String[] args) {
+        Conta conta1 = new Conta();
+        Conta conta2 = new Conta();
 
-        Conta c1 = new Conta();
-        ContaEspecial c2 = new ContaEspecial();
-        ContaInvestimento c3 = new ContaInvestimento();
+        ContaEspecial contaesp1 = new ContaEspecial();
+        ContaInvestimento containvest1 = new ContaInvestimento();
 
-        c1.sacar(500);
-        c1.depositar(500);
-        c1.transferir(100);
-        c1.atualizar(0.3);
+        conta1.numero = 1;
+//		conta1.saldo = 10000;
+        conta1.depositar(10000);
+        conta2.numero = 2;
+        conta2.saldo = 20000;
 
-        c2.sacar(1000);
-        c2.depositar(1000);
-        c1.transferir(150);
-        c2.atualizar(0.4);
+        contaesp1.numero = 01;
+        contaesp1.saldo = 120000;
+        containvest1.numero = 02;
+        containvest1.saldo = 150000;
 
-        c3.sacar(1500);
-        c3.depositar(1500);
-        c1.transferir(200);
-        c3.atualizar(0.5);
-
-        System.out.println("Saldo Conta: " + c1.getSaldo());
-        System.out.println("Saldo Conta Especial: " + c2.getSaldo());
-        System.out.println("Saldo Conta Investimento: " + c3.getSaldo());
+        System.out.println("Número da conta 1: " + conta1.numero);
+        System.out.println("Número da saldo 1: " + conta1.saldo);
+        System.out.println("Número da conta 2: " + conta2.numero);
+        System.out.println("Número da saldo 2: " + conta2.saldo);
+        System.out.println("Conta Especial: " + contaesp1.limite);
+        System.out.println("Conta Especial: " + contaesp1.numero);
+        System.out.println("Conta Especial: " + contaesp1.saldo);
+        System.out.println("Conta Investimento: " + containvest1.taxa);
+        System.out.println("Conta Investimento: " + containvest1.prazo);
+        System.out.println("Conta Investimento: " + containvest1.saldo);
     }
 }
